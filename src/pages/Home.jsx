@@ -6,17 +6,24 @@ import products from '../assets/data/products.js';
 import Helmet from "../components/Helmet/Helmet.js";
 import Services from "../services/Services.jsx";
 import ProductsList from "../components/UI/ProductsList.jsx";
+import Clock from "../components/UI/Clock.jsx";
 import { Container, Row, Col } from "reactstrap";
+import counterImage from '../assets/images/counter-timer-img.png';
 import heroImage from "../assets/images/hero-img.png";
 
 const Home = () => {
-  const [data, setData] = useState(products);
+  const [trendingProducts, setTrendingProducts] = useState([]);
+  const [bestSellingProducts, setBestSellingProducts] = useState([]);
   const year = new Date().getFullYear();
 
   useEffect(() => {
-    const filteredProducts = products.filter((item) => item.category === "chair");
+    const filteredTrendingProducts = products.filter((item) => item.category === "sofa");
 
-    setData(filteredProducts);
+    const filteredBestSellingProducts = products.filter((item) => item.category === "chair");
+
+    setTrendingProducts(filteredTrendingProducts);
+
+    setBestSellingProducts(filteredBestSellingProducts);
   }, []);
 
   return (
@@ -58,7 +65,7 @@ const Home = () => {
             <Col lg="12" className="text-center">
               <h2 className="section-title">Trending Products</h2>
             </Col>
-            <ProductsList data={data}></ProductsList>
+            <ProductsList data={trendingProducts}></ProductsList>
           </Row>
         </Container>
       </section>
@@ -68,6 +75,25 @@ const Home = () => {
         <Row>
             <Col lg="12" className="text-center">
               <h2 className="section-title">Best Selling Products</h2>
+            </Col>
+            <ProductsList data={bestSellingProducts}></ProductsList>
+          </Row>
+        </Container>
+      </section>
+
+      <section className="timer-count">
+        <Container>
+          <Row>
+            <Col lg='6' md='6'>
+              <div className="clock-top-content">
+                <h4 className="text-white fs-6 mb-2">Limited Time Offer</h4>
+                <h3 className="text-white fs-5 mb-3">Quality Armchair</h3>
+              </div>
+              <Clock></Clock>
+              <motion.button whileTap={{scale: 1.2}} className="buy-btn store-btn"><Link to="/shop">Visit Store</Link></motion.button>
+            </Col>
+            <Col lg='6' md='6' className="text-end">
+              <img src={counterImage} alt="counterImage" />
             </Col>
           </Row>
         </Container>
