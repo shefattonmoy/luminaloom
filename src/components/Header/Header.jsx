@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef, useEffect} from 'react';
 import './Header.css';
 import { Container, Row } from 'reactstrap';
 import { motion } from 'framer-motion';
@@ -22,7 +22,32 @@ const navLink = [
 ]
 
 const Header = () => {
-  return <header className="header">
+  const headerRef = useRef(null);
+
+  const menuRef = useRef(null);
+
+  const stickyHeaderFunction = () => {
+    window.addEventListener('scroll', () => {
+      if(document.body.scrollTop > 80 || document.documentElement.scrollTop > 80)
+      {
+        headerRef.current.classList.add('sticky-header');
+      }
+      else
+      {
+        headerRef.current.classList.remove('sticky-header');
+      }
+    })
+  }
+
+  useEffect(() => {
+    stickyHeaderFunction()
+
+    return () => window.removeEventListener('scroll', stickyHeaderFunction)
+  });
+
+  const menuToggle = () => menuRef.current.classList.toggle('active-menu')
+
+  return <header className="header" ref={headerRef}>
     <Container>
       <Row>
         <div className="nav-wrapper">
@@ -33,7 +58,7 @@ const Header = () => {
             </div>
           </div>
 
-          <div className="navigation">
+          <div className="navigation" ref={menuRef} onClick={menuToggle}>
             <ul className="menu">
               {
                 navLink.map((item, index) => (
@@ -57,10 +82,9 @@ const Header = () => {
               <span className='badge'>1</span>
               </span>
             <span><motion.img whileTap={{scale:1.2}} src={userImg} alt="" /></span>
+            <div className="mobile-menu">
+            <span onClick={menuToggle}><i class="ri-menu-line"></i></span>
           </div>
-
-          <div className="mobile-menu">
-            <span><i class="ri-menu-line"></i></span>
           </div>
         </div>
       </Row>
