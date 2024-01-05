@@ -74,10 +74,35 @@
     z-index: 10;
 }
 
-.nav-icons span img {
+.nav-icons .profile img {
     width: 30px;
     height: 30px;
     cursor: pointer;
+    border-radius: 50%;
+}
+
+.nav-icons .profile {
+    position: relative;
+    z-index: 9;
+}
+
+.nav-icons .profile .profile-actions {
+    position: absolute;
+    top: 98%;
+    left: 0;
+    width: 150px;
+    z-index: 10;
+    padding: 10px;
+    display: none;
+    align-items: center;
+    flex-direction: column;
+    background: var(--card-bg-01);
+    line-height: 30px;
+    cursor: pointer;
+}
+
+.nav-icons .profile .profile-actions.show-profile-actions {
+    display: flex; 
 }
 
 .mobile-menu {

@@ -63,7 +63,6 @@ const Checkout = () => {
                 </h4>
                 <button className="checkout-btn auth-btn w-100">Place Order</button>
               </div>
-              
             </Col>
           </Row>
         </Container>
