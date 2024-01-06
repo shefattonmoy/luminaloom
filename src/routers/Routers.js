@@ -10,6 +10,7 @@ import PrivateRoute from "./PrivateRoute";
 import AddProducts from "../admin/AddProducts";
 import AllProducts from "../admin/AllProducts";
 import Dashboard from "../admin/Dashboard";
+import Users from "../admin/Users";
 
 const Routers = () => {
   return (
@@ -24,6 +25,7 @@ const Routers = () => {
         <Route path="dashboard" element={<Dashboard></Dashboard>}></Route>
         <Route path="dashboard/all-products" element={<AllProducts></AllProducts>}></Route>
         <Route path="dashboard/add-products" element={<AddProducts></AddProducts>}></Route>
+        <Route path="dashboard/users" element={<Users></Users>}></Route>
       </Route>
       <Route path="login" element={<Login></Login>}></Route>
       <Route path="signup" element={<Registration></Registration>}></Route>

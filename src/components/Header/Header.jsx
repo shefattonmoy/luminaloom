@@ -119,7 +119,7 @@ const Header = () => {
             <div className="nav-icons">
               <span className="fav-icon">
                 <i class="ri-heart-line"></i>
-                <span className="badge">1</span>
+                <span className="badge">0</span>
               </span>
               <span className="cart-icon" onClick={navigateToCart}>
                 <i class="ri-shopping-bag-line"></i>

@@ -36,7 +36,7 @@ const AddProducts = () => {
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
             await addDoc(docRef, {
-              title: enterTitle,
+              productName: enterTitle,
               shortDescription: enterShortDescription,
               description: enterDescription,
               category: enterCategory,
@@ -122,7 +122,7 @@ const AddProducts = () => {
                           setEnterCategory(event.target.value)
                         }
                       >
-                        <option>Filter By Category</option>
+                        <option>Select Category</option>
                         <option value="sofa">Sofa</option>
                         <option value="chair">Chair</option>
                         <option value="sofa">Table</option>
