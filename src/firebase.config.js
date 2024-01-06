@@ -4,12 +4,12 @@ import {getFirestore} from 'firebase/firestore';
 import {getStorage} from 'firebase/storage';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDh67V_alVoe9q5oPtyvldREAwKfQur64U",
-  authDomain: "luminaloom-1fa12.firebaseapp.com",
-  projectId: "luminaloom-1fa12",
-  storageBucket: "luminaloom-1fa12.appspot.com",
-  messagingSenderId: "848416889463",
-  appId: "1:848416889463:web:922fb3c6f2c69165c68472"
+  apiKey: process.env.REACT_APP_APIKEY,
+  authDomain: process.env.REACT_APP_AUTHDOMAIN,
+  projectId: process.env.REACT_APP_PROJECTID,
+  storageBucket: process.env.REACT_APP_STORAGEBUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGINESENDERID,
+  appId: process.env.REACT_APP_APPID
 };
 
 // Initialize Firebase
